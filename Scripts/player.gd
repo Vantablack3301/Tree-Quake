@@ -4,10 +4,15 @@ extends CharacterBody3D
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
+const BOB_FREQ = 2.0
+const BOB_AMP = .08
+var t_bob = 0.0
+
 var look_rotation : Vector2
 
 var mouse_captured : bool
 @onready var head: Node3D = $Head
+@onready var camera: Node3D = $Head/Camera3D
 
 var look_speed = .002
 
@@ -25,13 +30,28 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("Move_Left", "Move_Right", "Move_Forward", "Move_Backward")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
+	if is_on_floor():
+		if direction:
+			velocity.x = direction.x * SPEED
+			velocity.z = direction.z * SPEED
+		else:
+			velocity.x = lerp(velocity.x, direction.x * SPEED, delta * 7)
+			velocity.z = lerp(velocity.z, direction.x * SPEED, delta * 7)
 	else:
-		velocity.x = 0.0
-		velocity.z = 0.0
+		velocity.x = lerp(velocity.x, direction.x * SPEED, delta * 3)
+		velocity.z = lerp(velocity.z, direction.x * SPEED, delta * 3)
+	
+	
+	t_bob += delta * velocity.length() * float(is_on_floor())
+	camera.transform.origin = _headbob(t_bob)
 	move_and_slide()
+
+
+func _headbob(time) -> Vector3:
+	var pos = Vector3.ZERO
+	pos.y = sin(time * BOB_FREQ) * BOB_AMP
+	pos.x = cos(time * BOB_FREQ / 2) * BOB_AMP
+	return pos
 
 
 func _unhandled_input(event: InputEvent) -> void:

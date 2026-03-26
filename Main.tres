@@ -1,0 +1,12 @@
+[gd_resource type="VisualShader" format=3 uid="uid://ejw4d03335wf"]
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_leesr"]
+expanded_output_ports = [0]
+parameter_name = "BaseColor"
+
+[resource]
+preview_params/BaseColor = "Color(1, 0, 0, 1)"
+nodes/vertex/0/position = Vector2(320, 144)
+nodes/vertex/2/node = SubResource("VisualShaderNodeColorParameter_leesr")
+nodes/vertex/2/position = Vector2(-272, 272)
+nodes/vertex/connections = PackedInt32Array(2, 0, 0, 6)
