@@ -16,10 +16,13 @@ sky = SubResource("Sky_bcbcq")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="PlaceholderMaterial" id="PlaceholderMaterial_2dftf"]
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bcbcq"]
 render_priority = 0
+next_pass = SubResource("PlaceholderMaterial_2dftf")
 shader = ExtResource("2_2dftf")
-shader_parameter/BaseColor = Color(0, 0, 0, 1)
+shader_parameter/BaseColor = Color(1, 0, 0, 1)
 
 [node name="Node3D" type="Node3D" unique_id=735364621]
 
