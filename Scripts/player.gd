@@ -13,9 +13,11 @@ var look_rotation : Vector2
 var mouse_captured : bool
 @onready var head: Node3D = $Head
 @onready var camera: Node3D = $Head/Camera3D
+@onready var gun: Node3D = $Head/Camera3D/Gun
 
 var look_speed = .002
 
+	
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -63,6 +65,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 	if mouse_captured and event is InputEventMouseMotion:
 		rotate_look(event.relative)
+		
+	if Input.is_action_just_pressed("Shoot"):
+		gun.Shoot()
 	
 func rotate_look(rot_input : Vector2):
 	look_rotation.x -= rot_input.y * look_speed

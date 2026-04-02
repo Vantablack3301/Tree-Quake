@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bugqld1fqu834"]
+
+[ext_resource type="Script" uid="uid://i71a4j7k6ltq" path="res://Scripts/bulllet.gd" id="1_3uu30"]
+
+[node name="Bulllet" type="RigidBody3D" unique_id=1301072879]
+script = ExtResource("1_3uu30")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1181934552]
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CollisionShape3D" unique_id=1882648093]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
