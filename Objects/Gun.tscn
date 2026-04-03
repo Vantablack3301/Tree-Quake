@@ -2,12 +2,15 @@
 
 [ext_resource type="Script" uid="uid://dk33oh4ftdyo" path="res://Scripts/gun.gd" id="1_b3a8w"]
 [ext_resource type="PackedScene" uid="uid://k4wsru5spghg" path="res://GLB format/tree-park-large.glb" id="2_0g2q7"]
+[ext_resource type="PackedScene" uid="uid://bugqld1fqu834" path="res://Objects/Bullet.tscn" id="2_m7g7w"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_yvn34"]
 
 [node name="Gun" type="Node3D" unique_id=1939645043 node_paths=PackedStringArray("Muzzle")]
 script = ExtResource("1_b3a8w")
 Muzzle = NodePath("MeshInstance3D/Muzzle")
+BulletProjectile = ExtResource("2_m7g7w")
+Speed = 50.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=227014687]
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
@@ -19,3 +22,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.061986e-08, 1.1580474, 0)
 
 [node name="tree-park-large2" parent="." unique_id=1444663859 instance=ExtResource("2_0g2q7")]
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -0.7198819, 0, 0)
+
+[node name="Bulllet" parent="." unique_id=1135907301 instance=ExtResource("2_m7g7w")]
+visible = false
