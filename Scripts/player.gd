@@ -27,6 +27,7 @@ const KEY_ICON = preload("res://key_icon.tscn")
 func _ready() -> void:
 	update_ui()
 		
+	
 func update_ui():
 	for x in key_container.get_children():
 		x.queue_free()

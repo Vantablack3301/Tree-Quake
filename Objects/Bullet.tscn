@@ -8,6 +8,7 @@ script = ExtResource("1_ljs67")
 
 [node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="." unique_id=1216442409]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2872367, -0.25334144, -0.05272779)
+disabled = true
 polygon = PackedVector2Array(0.24015093, 0.65186584, 0.54830897, 0.6346669, 0.5007824, 0.19161391, 0.06148553, 0.1439358, 0.029917836, 0.64633846)
 
 [node name="tree-small2" parent="." unique_id=1385633879 instance=ExtResource("2_2ap01")]
