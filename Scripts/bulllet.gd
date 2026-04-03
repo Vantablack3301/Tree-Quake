@@ -7,11 +7,11 @@ var Speed = 5
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if (wasShot):
-		var velocity = (transform.basis.x * Speed)
+		var velocity = (transform.basis.x * -Speed)
 		set_axis_velocity(velocity)
 		
 		
-func _on_body_entered(body: Node) -> void:
+func _on_tree_entered(body: Node) -> void:
 	if body.has_method("Damage()"):
 		body.Damage()
 	else:

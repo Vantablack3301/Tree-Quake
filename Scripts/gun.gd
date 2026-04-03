@@ -1,6 +1,6 @@
 extends Node3D
 
-@onready var Muzzle = $Muzzle
+@export var Muzzle: Node3D
 @export var BulletProjectile = preload("res://Objects/Bulllet.tscn")
 
 @export var Speed: float = 5.0
@@ -8,5 +8,6 @@ extends Node3D
 
 func Shoot():
 	var Bullet = BulletProjectile.instantiate()
+	Bullet.transform = Muzzle.global_transform
 	Bullet.Speed = Speed
 	Bullet.wasShot = true

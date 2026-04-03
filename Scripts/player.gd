@@ -88,6 +88,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		rotate_look(event.relative)
 		
 	if Input.is_action_just_pressed("Shoot"):
+		print("player just shot, idk why it isnt working")
 		gun.Shoot()
 	
 	if Input.is_action_just_pressed("Interact"):
