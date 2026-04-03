@@ -1,5 +1,5 @@
 extends CharacterBody3D
-
+class_name Player
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
@@ -15,7 +15,26 @@ var mouse_captured : bool
 @onready var camera: Node3D = $Head/Camera3D
 
 var look_speed = .002
+@onready var shape_cast_3d: ShapeCast3D = $Head/Camera3D/ShapeCast3D
 
+var keys:Array[key] = []
+
+#ui stuff
+@onready var key_container: HBoxContainer = $UiControl/keycContainer
+const KEY_ICON = preload("res://key_icon.tscn")
+
+func _ready() -> void:
+	update_ui()
+		
+func update_ui():
+	for x in key_container.get_children():
+		x.queue_free()
+
+	for key in keys:
+		var new_key_icon:TextureRect = KEY_ICON.instantiate()
+		key_container.add_child(new_key_icon)
+	
+	
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -45,6 +64,9 @@ func _physics_process(delta: float) -> void:
 	t_bob += delta * velocity.length() * float(is_on_floor())
 	camera.transform.origin = _headbob(t_bob)
 	move_and_slide()
+	
+
+	
 
 
 func _headbob(time) -> Vector3:
@@ -63,6 +85,26 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 	if mouse_captured and event is InputEventMouseMotion:
 		rotate_look(event.relative)
+	
+	if Input.is_action_just_pressed("Interact"):
+		if shape_cast_3d.is_colliding():
+			var collisions = shape_cast_3d.get_collision_result()
+			var collide = collisions[0]["collider"]
+			print(collisions[0]["collider"])
+			if collide.name == "KeyArea3D":
+				#collide.get_parent().queue_free()
+				pick_up_key(collide.owner)
+			
+func pick_up_key(key):
+	keys.append(key.duplicate())
+	key.queue_free()
+	update_ui()
+	
+
+	
+
+			
+			
 	
 func rotate_look(rot_input : Vector2):
 	look_rotation.x -= rot_input.y * look_speed

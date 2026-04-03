@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://mh48lfn0p3xh"]
+
+[ext_resource type="Texture2D" uid="uid://dpp0obnlrkttr" path="res://KEY.png" id="1_d52yo"]
+
+[node name="TextureRect" type="TextureRect" unique_id=1389458037]
+texture = ExtResource("1_d52yo")
+expand_mode = 2
