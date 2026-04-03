@@ -27,6 +27,7 @@ mesh = SubResource("CapsuleMesh_pusnx")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6415322, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=1300215808]
+near = 0.1
 
 [node name="Gun" parent="Head/Camera3D" unique_id=1939645043 instance=ExtResource("2_pusnx")]
 transform = Transform3D(-1.4424758e-08, 0, 0.33, 0, 0.33, 0, -0.33, 0, -1.4424758e-08, 0, -0.42743707, -0.70545423)
