@@ -10,11 +10,10 @@ func _process(delta: float) -> void:
 		velocity = get_global_transform().basis.x * _Speed
 		move_and_slide()
 		velocity = Vector3.ZERO
-	print("I EXIST!!!")
 	
 		
 		
-func _on_collision_polygon_3d_tree_entered(body: Node3D) -> void:
+func _on_tree_entered(body: Node3D) -> void:
 	print("Overlap")
 	if body.has_method("Damage()"):
 		body.Damage()
