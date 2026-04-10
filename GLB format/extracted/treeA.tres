@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://ymi0rq1meyhr"]
+
+[ext_resource type="Texture2D" uid="uid://b5w8nidfpkime" path="res://GLB format/Textures/treeA.png" id="1_dilla"]
+
+[resource]
+resource_name = "treeA"
+transparency = 4
+shading_mode = 0
+albedo_texture = ExtResource("1_dilla")

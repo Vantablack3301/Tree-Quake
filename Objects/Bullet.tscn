@@ -6,11 +6,22 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_ljs67"]
 size = Vector3(0.59191895, 0.40161133, 0.5532837)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_2ap01"]
+
 [node name="Bulllet" type="CharacterBody3D" unique_id=1135907301]
 script = ExtResource("1_ljs67")
 
-[node name="tree-small2" parent="." unique_id=1385633879 instance=ExtResource("2_2ap01")]
+[node name="tree-small2" parent="." unique_id=1801910131 instance=ExtResource("2_2ap01")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2108902412]
+[node name="Area3D" type="Area3D" parent="." unique_id=1618370672]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=2108902412]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.012523115, 0.15956283, 0.013127327)
 shape = SubResource("BoxShape3D_ljs67")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1259988780]
+shape = SubResource("BoxShape3D_2ap01")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

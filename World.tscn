@@ -26,6 +26,8 @@ next_pass = SubResource("PlaceholderMaterial_2dftf")
 shader = ExtResource("2_2dftf")
 shader_parameter/BaseColor = Color(1, 0, 0, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_js7pq"]
+
 [node name="Node3D" type="Node3D" unique_id=735364621]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=361524373]
@@ -46,6 +48,11 @@ transform = Transform3D(0.305, 0, 0, 0, 0.305, 0, 0, 0, 0.305, -8.202517, 11.332
 [node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1522108208]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4133897, 0.121531725, 1.0143671)
 material = SubResource("ShaderMaterial_bcbcq")
+
+[node name="Area3D" type="Area3D" parent="CSGBox3D2" unique_id=1088096472]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D2/Area3D" unique_id=997927242]
+shape = SubResource("BoxShape3D_js7pq")
 
 [node name="KeyCardScene" parent="." unique_id=100631412 instance=ExtResource("4_js7pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.946346, 0, -1.259125)

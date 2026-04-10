@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bg77x5sof3rs4"]
+
+[ext_resource type="Script" uid="uid://c4bqfllx2xhtk" path="res://Objects/BulletProjectile.gd" id="1_8cdmo"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ein54"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6ntab"]
+
+[node name="BulletProjectile" type="Area3D" unique_id=1041891751]
+script = ExtResource("1_8cdmo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=636892691]
+mesh = SubResource("BoxMesh_ein54")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=484604981]
+shape = SubResource("BoxShape3D_6ntab")
