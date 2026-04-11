@@ -1,10 +1,11 @@
 extends CharacterBody3D
 class_name Player
 
-const SPEED = 5.0
+@export var SPEED = 5.0
+@export var weight = 1.1
 const JUMP_VELOCITY = 4.5
 
-const BOB_FREQ = 2.0
+const BOB_FREQ = 1.0
 const BOB_AMP = .08
 var t_bob = 0.0
 
@@ -41,7 +42,7 @@ func update_ui():
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		velocity += (get_gravity() * weight) * delta
 
 	# Handle jump.
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
@@ -59,8 +60,8 @@ func _physics_process(delta: float) -> void:
 			velocity.x = lerp(velocity.x, direction.x * SPEED, delta * 7)
 			velocity.z = lerp(velocity.z, direction.x * SPEED, delta * 7)
 	else:
-		velocity.x = lerp(velocity.x, direction.x * SPEED, delta * 3)
-		velocity.z = lerp(velocity.z, direction.x * SPEED, delta * 3)
+		velocity.x = lerp(velocity.x, direction.x * SPEED, delta)
+		velocity.z = lerp(velocity.z, direction.z * SPEED, delta)
 	
 	
 	t_bob += delta * velocity.length() * float(is_on_floor())
