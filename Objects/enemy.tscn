@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bufm8vjbaxq1d"]
+
+[ext_resource type="Script" uid="uid://bspxxskllfvml" path="res://enemy.gd" id="1_edmjf"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_f5c0m"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b2ar6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fv4w7"]
+size = Vector3(2.285, 2.11, 2.02)
+
+[node name="Enemy" type="CharacterBody3D" unique_id=2121831211 groups=["enemies"]]
+script = ExtResource("1_edmjf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1031113013]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_f5c0m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=870972422]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_b2ar6")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=387515557]
+
+[node name="DamageArea" type="Area3D" parent="." unique_id=627173674]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DamageArea" unique_id=122233458]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95916176, 0)
+shape = SubResource("BoxShape3D_fv4w7")
+
+[connection signal="body_shape_entered" from="DamageArea" to="." method="_on_damage_area_body_shape_entered"]

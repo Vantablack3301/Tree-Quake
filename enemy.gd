@@ -15,3 +15,8 @@ func _physics_process(delta):
 func update_target_location(target_location):
 	nav_agent.target_position = target_location
 	
+
+
+func _on_damage_area_body_shape_entered(body_rid: RID, body: Node3D, body_shape_index: int, local_shape_index: int) -> void:
+	if body is Player:
+		body.damage(5)
