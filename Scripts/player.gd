@@ -129,3 +129,6 @@ func capture_mouse():
 func release_mouse():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	mouse_captured = false
+
+func damage(hitAmount : int):
+	print("missing logic for now, hit was " + str(hitAmount))
