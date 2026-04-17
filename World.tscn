@@ -201,7 +201,7 @@ shadow_enabled = true
 environment = SubResource("Environment_js7pq")
 
 [node name="Player" parent="." unique_id=652468061 groups=["Player"] instance=ExtResource("1_c6gwx")]
-transform = Transform3D(0.011383804, 0, -0.30478752, 0, 0.30500004, 0, 0.30478752, 0, 0.011383804, -28.21571, 3.7417898, 25.152483)
+transform = Transform3D(0.011383804, 0, -0.30478752, 0, 0.30500004, 0, 0.30478752, 0, 0.011383804, -38.055126, 5.0123215, 50.413006)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1522108208]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4133897, 0.38281322, 1.0143671)
