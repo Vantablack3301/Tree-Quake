@@ -1,9 +1,8 @@
 [gd_scene format=3 uid="uid://bufm8vjbaxq1d"]
 
 [ext_resource type="Script" uid="uid://bspxxskllfvml" path="res://enemy.gd" id="1_edmjf"]
-[ext_resource type="PackedScene" uid="uid://neo582cracf2" path="res://Objects/Axe.fbx" id="2_dnm5c"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_f5c0m"]
+[ext_resource type="Material" uid="uid://c1bdeayb04ota" path="res://Textures/AXE.tres" id="2_d3xos"]
+[ext_resource type="ArrayMesh" uid="uid://bhokaefeulkty" path="res://Objects/UIKCY3WJD4X5HEXJFIEDWYEJDFUXWKEJKDSFUYC.obj" id="3_yfe2k"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b2ar6"]
 
@@ -13,12 +12,10 @@ size = Vector3(2.285, 2.11, 2.02)
 [node name="Enemy" type="CharacterBody3D" unique_id=2121831211 groups=["enemies"]]
 script = ExtResource("1_edmjf")
 
-[node name="Axe" parent="." unique_id=1560303589 groups=["enemies"] instance=ExtResource("2_dnm5c")]
-transform = Transform3D(14.96, 0, 0, 0, 14.96, 0, 0, 0, 14.96, 0, 0.09617448, 0)
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1031113013 groups=["enemies"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.89519715, 0)
-mesh = SubResource("CapsuleMesh_f5c0m")
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0.08921933, 0)
+material_override = ExtResource("2_d3xos")
+mesh = ExtResource("3_yfe2k")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=870972422 groups=["enemies"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c1bdeayb04ota"]
+
+[ext_resource type="Texture2D" uid="uid://bknuynl4jqfgc" path="res://Textures/AXE_BODY.png" id="1_oowas"]
+
+[resource]
+albedo_texture = ExtResource("1_oowas")
+metallic_specular = 0.0
+texture_filter = 2

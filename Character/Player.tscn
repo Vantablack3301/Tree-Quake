@@ -13,35 +13,35 @@ points = PackedVector3Array(-0.12520654, -0.532801, -0.4805069, 0.022783129, 0.4
 [sub_resource type="SphereShape3D" id="SphereShape3D_lgt04"]
 radius = 0.2
 
-[node name="Player" type="CharacterBody3D" unique_id=652468061 groups=["Player"]]
+[node name="Player" type="CharacterBody3D" unique_id=652468061]
 script = ExtResource("1_lgt04")
 SPEED = 10.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1927160701 groups=["Player"]]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1927160701]
 shape = SubResource("ConvexPolygonShape3D_schp4")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1584598415 groups=["Player"]]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1584598415]
 visible = false
 mesh = SubResource("CapsuleMesh_pusnx")
 
-[node name="Head" type="Node3D" parent="." unique_id=285645517 groups=["Player"]]
+[node name="Head" type="Node3D" parent="." unique_id=285645517]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6415322, 0)
 
-[node name="Camera3D" type="Camera3D" parent="Head" unique_id=1300215808 groups=["Player"]]
+[node name="Camera3D" type="Camera3D" parent="Head" unique_id=1300215808]
 near = 0.1
 
-[node name="Gun" parent="Head/Camera3D" unique_id=1939645043 groups=["Player"] instance=ExtResource("2_pusnx")]
+[node name="Gun" parent="Head/Camera3D" unique_id=1939645043 instance=ExtResource("2_pusnx")]
 transform = Transform3D(-1.4424758e-08, 0, 0.33, 0, 0.33, 0, -0.33, 0, -1.4424758e-08, 0, -0.42743707, -0.70545423)
 
-[node name="Key" parent="Head/Camera3D" unique_id=1964610416 groups=["Player"] instance=ExtResource("2_schp4")]
+[node name="Key" parent="Head/Camera3D" unique_id=1964610416 instance=ExtResource("2_schp4")]
 
-[node name="ShapeCast3D" type="ShapeCast3D" parent="Head/Camera3D" unique_id=202701205 groups=["Player"]]
+[node name="ShapeCast3D" type="ShapeCast3D" parent="Head/Camera3D" unique_id=202701205]
 shape = SubResource("SphereShape3D_lgt04")
 target_position = Vector3(0, 0, -2)
 collision_mask = 5
 collide_with_areas = true
 
-[node name="UiControl" type="Control" parent="." unique_id=1282787866 groups=["Player"]]
+[node name="UiControl" type="Control" parent="." unique_id=1282787866]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -50,7 +50,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="keycContainer" type="HBoxContainer" parent="UiControl" unique_id=105222060 groups=["Player"]]
+[node name="keycContainer" type="HBoxContainer" parent="UiControl" unique_id=105222060]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.908
@@ -63,8 +63,8 @@ grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(2.35, 3.53)
 
-[node name="keyimage" parent="UiControl/keycContainer" unique_id=380840271 groups=["Player"] instance=ExtResource("2_schp4")]
+[node name="keyimage" parent="UiControl/keycContainer" unique_id=380840271 instance=ExtResource("2_schp4")]
 layout_mode = 2
 
-[node name="tree-pine-large2" parent="." unique_id=1057861983 groups=["Player"] instance=ExtResource("4_ssuvf")]
+[node name="tree-pine-large2" parent="." unique_id=1057861983 instance=ExtResource("4_ssuvf")]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, -1.0094653, 0)

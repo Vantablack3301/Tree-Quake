@@ -23,9 +23,7 @@ func DebugShot(Speed: float, Transform: Transform3D):
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	print("overlap")
-	if body.has_method("Damage()"):
-		body.Damage()
-	else:
-		print("object has no damage function, pretend we killed it")
+	if body is Enemy:
+		body.queue_free()
 		
 	queue_free()
