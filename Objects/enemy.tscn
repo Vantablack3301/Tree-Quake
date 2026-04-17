@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bufm8vjbaxq1d"]
 
 [ext_resource type="Script" uid="uid://bspxxskllfvml" path="res://enemy.gd" id="1_edmjf"]
+[ext_resource type="PackedScene" uid="uid://neo582cracf2" path="res://Objects/Axe.fbx" id="2_dnm5c"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_f5c0m"]
 
@@ -12,19 +13,22 @@ size = Vector3(2.285, 2.11, 2.02)
 [node name="Enemy" type="CharacterBody3D" unique_id=2121831211 groups=["enemies"]]
 script = ExtResource("1_edmjf")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1031113013]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+[node name="Axe" parent="." unique_id=1560303589 groups=["enemies"] instance=ExtResource("2_dnm5c")]
+transform = Transform3D(14.96, 0, 0, 0, 14.96, 0, 0, 0, 14.96, 0, 0.09617448, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1031113013 groups=["enemies"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.89519715, 0)
 mesh = SubResource("CapsuleMesh_f5c0m")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=870972422]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=870972422 groups=["enemies"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_b2ar6")
 
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=387515557]
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=387515557 groups=["enemies"]]
 
-[node name="DamageArea" type="Area3D" parent="." unique_id=627173674]
+[node name="DamageArea" type="Area3D" parent="." unique_id=627173674 groups=["enemies"]]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DamageArea" unique_id=122233458]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DamageArea" unique_id=122233458 groups=["enemies"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95916176, 0)
 shape = SubResource("BoxShape3D_fv4w7")
 
